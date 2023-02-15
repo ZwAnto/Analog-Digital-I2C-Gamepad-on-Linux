@@ -137,19 +137,19 @@ int createUInputDevice() {
   ioctl(fd, UI_SET_EVBIT, EV_KEY);
   ioctl(fd, UI_SET_EVBIT, EV_REL);
   // button
-  ioctl(fd, UI_SET_KEYBIT, BTN_A);
-  ioctl(fd, UI_SET_KEYBIT, BTN_B);
-  ioctl(fd, UI_SET_KEYBIT, BTN_X);
-  ioctl(fd, UI_SET_KEYBIT, BTN_Y);
-  ioctl(fd, UI_SET_KEYBIT, BTN_DPAD_UP);
-  ioctl(fd, UI_SET_KEYBIT, BTN_DPAD_DOWN);
-  ioctl(fd, UI_SET_KEYBIT, BTN_DPAD_LEFT);
-  ioctl(fd, UI_SET_KEYBIT, BTN_DPAD_RIGHT);
-  ioctl(fd, UI_SET_KEYBIT, KEY_ENTER);
-  ioctl(fd, UI_SET_KEYBIT, KEY_ESC);
-  ioctl(fd, UI_SET_KEYBIT, KEY_BACKSPACE);
-  ioctl(fd, UI_SET_KEYBIT, BTN_SELECT);
   ioctl(fd, UI_SET_KEYBIT, KEY_UP);
+  ioctl(fd, UI_SET_KEYBIT, KEY_DOWN);
+  ioctl(fd, UI_SET_KEYBIT, KEY_LEFT);
+  ioctl(fd, UI_SET_KEYBIT, KEY_RIGHT);
+  ioctl(fd, UI_SET_KEYBIT, KEY_X); // A
+  ioctl(fd, UI_SET_KEYBIT, KEY_Z); // B
+  ioctl(fd, UI_SET_KEYBIT, KEY_S); // X
+  ioctl(fd, UI_SET_KEYBIT, KEY_A); // Y
+  ioctl(fd, UI_SET_KEYBIT, KEY_ENTER); // START
+  ioctl(fd, UI_SET_KEYBIT, KEY_RIGHTSHIFT); // SELECT
+  ioctl(fd, UI_SET_KEYBIT, KEY_Q); // LEFT
+  ioctl(fd, UI_SET_KEYBIT, KEY_W); // RIGHT
+  ioctl(fd, UI_SET_KEYBIT, KEY_BACKSPACE);
   ioctl(fd, UI_SET_KEYBIT, KEY_DOWN);
   ioctl(fd, UI_SET_KEYBIT, KEY_LEFT);
   ioctl(fd, UI_SET_KEYBIT, KEY_RIGHT);
@@ -180,19 +180,19 @@ void emit(int virtualGamepad, int type, int code, int val) {
 
 void updateButtons(int virtualGamepad, int buttons) {
   // update button event
-  emit(virtualGamepad, EV_KEY, BTN_A, ((buttons >> 0x00) & 1));
-  emit(virtualGamepad, EV_KEY, BTN_B, ((buttons >> 0x01) & 1));
-  emit(virtualGamepad, EV_KEY, BTN_X, ((buttons >> 0x02) & 1));
-  emit(virtualGamepad, EV_KEY, BTN_Y, ((buttons >> 0x03) & 1));
-  emit(virtualGamepad, EV_KEY, BTN_DPAD_UP, ((buttons >> 0x04) & 1));
-  emit(virtualGamepad, EV_KEY, BTN_DPAD_DOWN, ((buttons >> 0x05) & 1));
-  emit(virtualGamepad, EV_KEY, BTN_DPAD_LEFT, ((buttons >> 0x06) & 1));
-  emit(virtualGamepad, EV_KEY, BTN_DPAD_RIGHT, ((buttons >> 0x07) & 1));
+  emit(virtualGamepad, EV_KEY, KEY_UP, ((buttons >> 0x00) & 1));
+  emit(virtualGamepad, EV_KEY, KEY_DOWN, ((buttons >> 0x01) & 1));
+  emit(virtualGamepad, EV_KEY, KEY_LEFT, ((buttons >> 0x02) & 1));
+  emit(virtualGamepad, EV_KEY, KEY_RIGHT, ((buttons >> 0x03) & 1));
+  emit(virtualGamepad, EV_KEY, KEY_X, ((buttons >> 0x04) & 1));
+  emit(virtualGamepad, EV_KEY, KEY_Z, ((buttons >> 0x05) & 1));
+  emit(virtualGamepad, EV_KEY, KEY_S, ((buttons >> 0x06) & 1));
+  emit(virtualGamepad, EV_KEY, KEY_A, ((buttons >> 0x07) & 1));
   emit(virtualGamepad, EV_KEY, KEY_ENTER, ((buttons >> 0x08) & 1));
-  emit(virtualGamepad, EV_KEY, KEY_ESC, ((buttons >> 0x09) & 1));
-  emit(virtualGamepad, EV_KEY, KEY_BACKSPACE, ((buttons >> 0x0A) & 1));
-  emit(virtualGamepad, EV_KEY, BTN_SELECT, ((buttons >> 0x0B) & 1));
-  emit(virtualGamepad, EV_KEY, KEY_UP, ((buttons >> 0x0C) & 1));
+  emit(virtualGamepad, EV_KEY, KEY_RIGHTSHIFT, ((buttons >> 0x09) & 1));
+  emit(virtualGamepad, EV_KEY, KEY_Q, ((buttons >> 0x0A) & 1));
+  emit(virtualGamepad, EV_KEY, KEY_W, ((buttons >> 0x0B) & 1));
+  emit(virtualGamepad, EV_KEY, KEY_BACKSPACE, ((buttons >> 0x0C) & 1));
   emit(virtualGamepad, EV_KEY, KEY_DOWN, ((buttons >> 0x0D) & 1));
   emit(virtualGamepad, EV_KEY, KEY_LEFT, ((buttons >> 0x0E) & 1));
   emit(virtualGamepad, EV_KEY, KEY_RIGHT, ((buttons >> 0x0F) & 1));
