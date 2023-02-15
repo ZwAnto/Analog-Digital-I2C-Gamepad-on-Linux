@@ -180,10 +180,10 @@ void emit(int virtualGamepad, int type, int code, int val) {
 
 void updateButtons(int virtualGamepad, int buttons) {
   // update button event
-  emit(virtualGamepad, EV_KEY, BTN_TRIGGER_HAPPY1, ((buttons >> 0x00) & 1));
-  emit(virtualGamepad, EV_KEY, BTN_TRIGGER_HAPPY2, ((buttons >> 0x01) & 1));
-  emit(virtualGamepad, EV_KEY, BTN_TRIGGER_HAPPY3, ((buttons >> 0x02) & 1));
-  emit(virtualGamepad, EV_KEY, BTN_TRIGGER_HAPPY4, ((buttons >> 0x03) & 1));
+  emit(virtualGamepad, EV_KEY, 103, ((buttons >> 0x00) & 1));
+  emit(virtualGamepad, EV_KEY, 105, ((buttons >> 0x01) & 1));
+  emit(virtualGamepad, EV_KEY, 106, ((buttons >> 0x02) & 1));
+  emit(virtualGamepad, EV_KEY, 108, ((buttons >> 0x03) & 1));
   emit(virtualGamepad, EV_KEY, BTN_TRIGGER_HAPPY5, ((buttons >> 0x04) & 1));
   emit(virtualGamepad, EV_KEY, BTN_TRIGGER_HAPPY6, ((buttons >> 0x05) & 1));
   emit(virtualGamepad, EV_KEY, BTN_TRIGGER_HAPPY7, ((buttons >> 0x06) & 1));
