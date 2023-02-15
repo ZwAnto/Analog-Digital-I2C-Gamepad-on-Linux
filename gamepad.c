@@ -98,7 +98,7 @@ void MCP23017read(int I2C) {
   int col;
   state = 0;
 
-  for( col=0; ctr < 4; ctr++ ) {
+  for( col=0; col < 4; col++ ) {
 
     MCP23017writeBuffer[0] = MCP23017_OLATA;
     MCP23017writeBuffer[1] = 1 << col;
