@@ -96,7 +96,7 @@ void MCP23017writeConfig(int I2C) {
 void MCP23017read(int I2C) {
 
   int col;
-  state = 0
+  state = 0;
 
   for( col=0; ctr < 4; ctr++ ) {
 
@@ -106,9 +106,9 @@ void MCP23017read(int I2C) {
 
     MCP23017writeBuffer[0] = MCP23017_GPIOA;
     write(I2C, MCP23017writeBuffer, 1);
-    read(I2C, MCP23017readBuffer, 1)
+    read(I2C, MCP23017readBuffer, 1);
 
-    state = state | ((MCP23017readBuffer[0] >> 4) << col*4)
+    state = state | ((MCP23017readBuffer[0] >> 4) << col*4);
   }
 
 //  MCP23017writeBuffer[0] = MCP23017_GPIOA;
