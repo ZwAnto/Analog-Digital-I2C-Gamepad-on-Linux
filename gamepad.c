@@ -138,13 +138,13 @@ int createUInputDevice() {
   ioctl(fd, UI_SET_EVBIT, EV_REL);
   // button
   ioctl(fd, UI_SET_KEYBIT, BTN_A);
-  ioctl(fd, UI_SET_KEYBIT, BTN_TRIGGER_HAPPY2);
-  ioctl(fd, UI_SET_KEYBIT, BTN_TRIGGER_HAPPY3);
-  ioctl(fd, UI_SET_KEYBIT, BTN_TRIGGER_HAPPY4);
-  ioctl(fd, UI_SET_KEYBIT, BTN_TRIGGER_HAPPY5);
-  ioctl(fd, UI_SET_KEYBIT, BTN_TRIGGER_HAPPY6);
-  ioctl(fd, UI_SET_KEYBIT, BTN_TRIGGER_HAPPY7);
-  ioctl(fd, UI_SET_KEYBIT, BTN_TRIGGER_HAPPY8);
+  ioctl(fd, UI_SET_KEYBIT, BTN_B);
+  ioctl(fd, UI_SET_KEYBIT, BTN_X);
+  ioctl(fd, UI_SET_KEYBIT, BTN_Y);
+  ioctl(fd, UI_SET_KEYBIT, BTN_DPAD_UP);
+  ioctl(fd, UI_SET_KEYBIT, BTN_DPAD_DOWN);
+  ioctl(fd, UI_SET_KEYBIT, BTN_DPAD_LEFT);
+  ioctl(fd, UI_SET_KEYBIT, BTN_DPAD_RIGHT);
   ioctl(fd, UI_SET_KEYBIT, BTN_TRIGGER_HAPPY9);
   ioctl(fd, UI_SET_KEYBIT, BTN_TRIGGER_HAPPY10);
   ioctl(fd, UI_SET_KEYBIT, BTN_TRIGGER_HAPPY11);
@@ -181,13 +181,13 @@ void emit(int virtualGamepad, int type, int code, int val) {
 void updateButtons(int virtualGamepad, int buttons) {
   // update button event
   emit(virtualGamepad, EV_KEY, BTN_A, ((buttons >> 0x00) & 1));
-  emit(virtualGamepad, EV_KEY, BTN_TRIGGER_HAPPY2, ((buttons >> 0x01) & 1));
-  emit(virtualGamepad, EV_KEY, BTN_TRIGGER_HAPPY3, ((buttons >> 0x02) & 1));
-  emit(virtualGamepad, EV_KEY, BTN_TRIGGER_HAPPY4, ((buttons >> 0x03) & 1));
-  emit(virtualGamepad, EV_KEY, BTN_TRIGGER_HAPPY5, ((buttons >> 0x04) & 1));
-  emit(virtualGamepad, EV_KEY, BTN_TRIGGER_HAPPY6, ((buttons >> 0x05) & 1));
-  emit(virtualGamepad, EV_KEY, BTN_TRIGGER_HAPPY7, ((buttons >> 0x06) & 1));
-  emit(virtualGamepad, EV_KEY, BTN_TRIGGER_HAPPY8, ((buttons >> 0x07) & 1));
+  emit(virtualGamepad, EV_KEY, BTN_B, ((buttons >> 0x01) & 1));
+  emit(virtualGamepad, EV_KEY, BTN_X, ((buttons >> 0x02) & 1));
+  emit(virtualGamepad, EV_KEY, BTN_Y, ((buttons >> 0x03) & 1));
+  emit(virtualGamepad, EV_KEY, BTN_DPAD_UP, ((buttons >> 0x04) & 1));
+  emit(virtualGamepad, EV_KEY, BTN_DPAD_DOWN, ((buttons >> 0x05) & 1));
+  emit(virtualGamepad, EV_KEY, BTN_DPAD_LEFT, ((buttons >> 0x06) & 1));
+  emit(virtualGamepad, EV_KEY, BTN_DPAD_RIGHT, ((buttons >> 0x07) & 1));
   emit(virtualGamepad, EV_KEY, BTN_TRIGGER_HAPPY9, ((buttons >> 0x08) & 1));
   emit(virtualGamepad, EV_KEY, BTN_TRIGGER_HAPPY10, ((buttons >> 0x09) & 1));
   emit(virtualGamepad, EV_KEY, BTN_TRIGGER_HAPPY11, ((buttons >> 0x0A) & 1));
