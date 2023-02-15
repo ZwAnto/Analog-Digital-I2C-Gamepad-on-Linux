@@ -150,9 +150,9 @@ int createUInputDevice() {
   ioctl(fd, UI_SET_KEYBIT, KEY_Q); // LEFT
   ioctl(fd, UI_SET_KEYBIT, KEY_W); // RIGHT
   ioctl(fd, UI_SET_KEYBIT, KEY_BACKSPACE);
-  ioctl(fd, UI_SET_KEYBIT, KEY_DOWN);
-  ioctl(fd, UI_SET_KEYBIT, KEY_LEFT);
-  ioctl(fd, UI_SET_KEYBIT, KEY_RIGHT);
+  ioctl(fd, UI_SET_KEYBIT, BTN_TRIGGER_HAPPY1);
+  ioctl(fd, UI_SET_KEYBIT, BTN_TRIGGER_HAPPY2);
+  ioctl(fd, UI_SET_KEYBIT, BTN_TRIGGER_HAPPY3);
 
   snprintf(uidev.name, UINPUT_MAX_NAME_SIZE, "othermod Gamepad");
   uidev.id.bustype = BUS_USB;
@@ -193,9 +193,9 @@ void updateButtons(int virtualGamepad, int buttons) {
   emit(virtualGamepad, EV_KEY, KEY_Q, ((buttons >> 0x0A) & 1));
   emit(virtualGamepad, EV_KEY, KEY_W, ((buttons >> 0x0B) & 1));
   emit(virtualGamepad, EV_KEY, KEY_BACKSPACE, ((buttons >> 0x0C) & 1));
-  emit(virtualGamepad, EV_KEY, KEY_DOWN, ((buttons >> 0x0D) & 1));
-  emit(virtualGamepad, EV_KEY, KEY_LEFT, ((buttons >> 0x0E) & 1));
-  emit(virtualGamepad, EV_KEY, KEY_RIGHT, ((buttons >> 0x0F) & 1));
+  emit(virtualGamepad, EV_KEY, BTN_TRIGGER_HAPPY1, ((buttons >> 0x0D) & 1));
+  emit(virtualGamepad, EV_KEY, BTN_TRIGGER_HAPPY2, ((buttons >> 0x0E) & 1));
+  emit(virtualGamepad, EV_KEY, BTN_TRIGGER_HAPPY3, ((buttons >> 0x0F) & 1));
 }
 
 
