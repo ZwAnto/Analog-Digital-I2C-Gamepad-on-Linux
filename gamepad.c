@@ -26,7 +26,7 @@ uint16_t state;
 // specify addresses for expanders
 #define MCP23017_ADDRESS 0x20
 
-#define I2C_BUS "/dev/i2c-1" //specify which I2C bus to use
+#define I2C_BUS "/dev/i2c-11" //specify which I2C bus to use
 
 // stuff for the GPIO expander
 #define MCP23017_IODIRA 0x00
