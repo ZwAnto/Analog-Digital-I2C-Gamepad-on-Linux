@@ -149,7 +149,7 @@ int createUInputDevice() {
   ioctl(fd, UI_SET_KEYBIT, BTN_TR);
   ioctl(fd, UI_SET_KEYBIT, BTN_START);
   ioctl(fd, UI_SET_KEYBIT, BTN_SELECT);
-  ioctl(fd, UI_SET_KEYBIT, KEY_BRIGHTNESS_CYCLE);
+  ioctl(fd, UI_SET_KEYBIT, BTN_TRIGGER_HAPPY13);
   ioctl(fd, UI_SET_KEYBIT, BTN_TRIGGER_HAPPY14);
   ioctl(fd, UI_SET_KEYBIT, BTN_TRIGGER_HAPPY15);
   ioctl(fd, UI_SET_KEYBIT, BTN_TRIGGER_HAPPY16);
@@ -192,7 +192,7 @@ void updateButtons(int virtualGamepad, int buttons) {
   emit(virtualGamepad, EV_KEY, BTN_TR, ((buttons >> 0x09) & 1));
   emit(virtualGamepad, EV_KEY, BTN_START, ((buttons >> 0x0A) & 1));
   emit(virtualGamepad, EV_KEY, BTN_SELECT, ((buttons >> 0x0B) & 1));
-  emit(virtualGamepad, EV_KEY, KEY_BRIGHTNESS_CYCLE, ((buttons >> 0x0C) & 1));
+  emit(virtualGamepad, EV_KEY, BTN_TRIGGER_HAPPY13, ((buttons >> 0x0C) & 1));
   emit(virtualGamepad, EV_KEY, BTN_TRIGGER_HAPPY14, ((buttons >> 0x0D) & 1));
   emit(virtualGamepad, EV_KEY, BTN_TRIGGER_HAPPY15, ((buttons >> 0x0E) & 1));
   emit(virtualGamepad, EV_KEY, BTN_TRIGGER_HAPPY16, ((buttons >> 0x0F) & 1));
