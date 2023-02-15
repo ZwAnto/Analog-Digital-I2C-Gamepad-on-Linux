@@ -228,7 +228,7 @@ int main(int argc, char * argv[]) {
       reportUinput = 0;
     }
 
-    usleep(16666); // sleep for about 1/60th of a second. Also gives the ADC enough time to prepare the next reading
+    usleep(33333); // sleep for about 1/30th of a second. Also gives the ADC enough time to prepare the next reading
   }
   return 0;
 }
